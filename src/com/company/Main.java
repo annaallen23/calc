@@ -1,14 +1,13 @@
 package com.company;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner1= new Scanner (System.in);
-        int first = scanner1.nextInt ();
-        int second = scanner1.nextInt ();
+        Scanner scanner1 = new Scanner(System.in);
+        int first = scanner1.nextInt();
+        int second = scanner1.nextInt();
 
 
         System.out.println(first);
@@ -17,18 +16,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String operation = scanner.next();
 
-        if (operation.equals("+")) {
-            System.out.println(first + second);
-        } else if (operation.equals("x")) {
-            System.out.println(first * second);
-        } else if (operation.equals("-")) {
-            System.out.println(first - second);
-        } else if (operation.equals("/")) {
-            System.out.println(first / second);
-        }
-    }
+        Cancalculate calculate;
 
+        if (operation.equals("+")) {
+            calculate = new Add();
+        } else if (operation.equals("*")) {
+            calculate = new Multiply();
+        } else if (operation.equals ("-")) {
+            calculate = new Minus();
+        }else if (operation.equals ("/")) {
+            calculate = new Divide();
+        } else {
+            return;
+        }
+
+        System.out.println(calculate.calculate(first,second));
+    }
 }
+
+
 
 
 
